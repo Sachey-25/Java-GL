@@ -1,0 +1,1 @@
+This is the data in the newfile createdMy name is Sachin/nWe are dealing with the file handling/nWe have successfuly added info to the text file/ncreatedSachin
