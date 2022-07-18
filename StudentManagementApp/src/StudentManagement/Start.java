@@ -43,19 +43,21 @@ public class Start {
 				
 			}else if(c==2) {			
 				//delete student
-				
-			}else if(c==3) {				
-				//display student
+				System.out.println("Enter the student id to delete");
+				int userId=Integer.parseInt(br.readLine());
 				
 			}else if(c==4) {				
 				//exit the app
+				System.out.println("Thank you for using my application");
+				System.out.println("See you soon bye bye..!");
 				
+			}else if(c==3) {				
+				//display student
+				System.out.println("Enter the table name to display");
+				int userId=Integer.parseInt(br.readLine());
 				break;
-			}else {
-				
+			}else {				
 			}
 		}
-		System.out.println("Thank you for using my application");
-		System.out.println("See you soon bye bye..!");
 	}
-	}
+}

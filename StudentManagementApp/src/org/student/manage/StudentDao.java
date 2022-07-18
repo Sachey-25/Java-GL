@@ -15,8 +15,8 @@ public class StudentDao {
 			PreparedStatement pstmt=connection.prepareStatement(query);
 			//set the value of parameters
 			pstmt.setString(1, st.getStudentName());
-			pstmt.setString(1, st.getStudentPhone());
-			pstmt.setString(1, st.getStudentCity());
+			pstmt.setString(2, st.getStudentPhone());
+			pstmt.setString(3, st.getStudentCity());
 			
 			//execute
 			pstmt.executeUpdate();
