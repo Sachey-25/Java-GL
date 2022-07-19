@@ -1,7 +1,9 @@
 package com.spring.jdbc;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import com.spring.jdbc.dao.StudentDao;
 import com.spring.jdbc.entites.Student;
 
@@ -17,7 +19,7 @@ public class App
         System.out.println( "My program started...!" );
         //Spring JDBC --> jdbc template =-====> implementation code
         ApplicationContext context=
-        		new ClassPathXmlApplicationContext("com/spring/jdbc/config.xml");
+        		new AnnotationConfigApplicationContext(JdbcConfig.class);
         // we need to say Hi to the jdbcTemplate ==== database operation.
 //        JdbcTemplate template=context.getBean("jdbcTemplate",JdbcTemplate.class);
         
@@ -28,17 +30,41 @@ public class App
 //        int result=template.update(query,101,"ArtificalIntelligence","Bangalore");
 //        System.out.println("Number of record inserted..!" + result);
 //        
-//        //close the IoC
+//        
         StudentDao studentDao=context.getBean("studentDao",StudentDao.class );
-        Student student = new Student();
-        student.setId(456);
-        student.setName("DaoArchitecture");
-        student.setCity("Mumbai");
+        //INSERT
+//        Student student = new Student();
+//        student.setId(200);
+//        student.setName("JavaBackend");
+//        student.setCity("Kolkatta");
+//        int insert=studentDao.insert(student);
+//        System.out.println("Student record inserted : " + insert);
+//        System.out.println("==================================");
+//        
+//        //UPDATE
+//        student.setId(333);
+//        student.setName("DBoperation - Crud");
+//        student.setCity("Hydrabad");
+//        int update=studentDao.change(student);
+//        System.out.println("Data changed : " + update);
+//        System.out.println("==================================");
+//        
+//        //DELETE
+//        int result=studentDao.delete(222);
+//        System.out.println("deleted : " + result );
         
-        int display=studentDao.insert(student);
-        System.out.println("Student record inserted.." +display);
         
-        ((ClassPathXmlApplicationContext) context).close();
+        
+//        Student student=studentDao.getStudent(200);
+//        System.out.println(student);
+        
+        List<Student> students = studentDao.getAllStudents();
+        for(Student display: students) {
+        	System.out.println(display);
+        }
+        
+        //close the IoC
+       ((AnnotationConfigApplicationContext) context).close();
         
     }
 }
