@@ -24,7 +24,13 @@ public class Employee {
 	
 	@Column(name="email")
 	private String email;
-
+	
+	//Default Constructor
+	public Employee() {
+		super();
+	}
+	
+	//Parameterized constructor
 	public Employee(long id, String firstname, String lastname, String email) {
 		super();
 		this.id = id;
@@ -32,7 +38,8 @@ public class Employee {
 		this.lastname = lastname;
 		this.email = email;
 	}
-
+	
+	//Getter and setter methods
 	public long getId() {
 		return id;
 	}
