@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:p="http://www.springframework.org/schema/p"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd ">
+ 
+ 
+ <!--Configuring the spring jdbc -->
+ <!-- jdbc template, datasource -->
+ <!-- beans -->
+ 
+ <!-- Being a developer I gotta talk to any other API's using my programming'-->
+ 
+ <!-- Using java I am storing the data into the database.-->
+ 
+	 <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" name="ds">
+	 
+	 <!-- I have tried to connect the mysql workbench--> 
+	 	<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+	 	
+	 	<!-- inorder to say Hi to the database created -->
+	 	<property name="url" value="jdbc:mysql://localhost:3306/springjdbcone"></property>
+	 	
+	 	<!-- but I wanted to insert, delete, update and get the data's present in the table' -->
+	 	<property name="username" value="root"></property>
+	 	
+	 	<property name="password" value="root"></property>
+	 	
+	 </bean> 
+		 
+	 <bean class="org.springframework.jdbc.core.JdbcTemplate" name="jdbcTemplate" 
+	 	p:dataSource-ref="ds" />
+	 	
+	 <bean class="org.bct.spring.jdbc.dao.StudentDaoImpl" name="studentDao">
+	 	<property name="jdbcTemplate" ref="jdbcTemplate" />
+	 </bean>
+	 	
+</beans>
+
+
+
+
+
